@@ -12,7 +12,6 @@ COPY ./.docker/php-fpm/php.ini /usr/local/etc/php/php.ini
 COPY ./.docker/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./.docker/php-fpm/php-fpm.conf /usr/local/etc/php-fpm.conf
 
-
 FROM php as apis
 
 EXPOSE 9000
