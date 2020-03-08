@@ -8,6 +8,8 @@ COPY . /data/avaliacao-backend/
 
 RUN composer install -o
 
+RUN chmod -R 777 /data/avaliacao-backend/storage
+
 COPY ./.docker/php-fpm/php.ini /usr/local/etc/php/php.ini
 COPY ./.docker/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./.docker/php-fpm/php-fpm.conf /usr/local/etc/php-fpm.conf
