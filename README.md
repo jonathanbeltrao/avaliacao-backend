@@ -29,7 +29,7 @@ Após isso já deve ser possível acessar a aplicação em [http://localhost](ht
 
 Para executar os testes, utilize o PHPunit disponível na pasta vendor do projeto:
 
-`./vendor/bin/phpunit`
+`docker-compose exec apis vendor/bin/phpunit`
 
 
 ## Rotas
