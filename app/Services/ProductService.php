@@ -3,6 +3,8 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
 use App\Favorite;
+use App\User;
+use App\Events\SendFavoriteListEvent;
 
 class ProductService
 {
@@ -39,9 +41,13 @@ class ProductService
 
     public function favorite($user_id, $product_id){
 
+        $return = false; 
+
         $fav = Favorite::where('user_id', $user_id)
                 ->where('product_id', $product_id)
                 ->first();
+
+        $user = User::find($user_id);
 
         if(empty($fav)){
             $favorite = Favorite::create([
@@ -49,14 +55,14 @@ class ProductService
                 'product_id' => $product_id
             ]);
 
-            //event(new CreatedFavoriteEvent($favorite));
-            return true;
+            $return = true;
         }else{
             $favorite = $fav;
             Favorite::destroy($fav->id);
-
-            //event(new DeletedFavoriteEvent($favorite));
-            return false;
         }
+
+        event(new SendFavoriteListEvent($user, $this->getFavorites($user_id)));
+
+        return $return;
     }
 }

@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     //Products
     Route::get('/products', 'Api\ProductsController@list')->name('allProducts');
     Route::get('/favorites', 'Api\ProductsController@getFavorites')->name('allFavorites');
-    Route::post('/products/favorite/{id}', 'Api\ProductsController@favorite')->name('favoriteProduct');
+    Route::post('/products/favorite/{id?}', 'Api\ProductsController@favorite')->name('favoriteProduct');
 });
 
 // Create/Login User
