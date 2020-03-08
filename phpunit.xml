@@ -26,5 +26,7 @@
         <server name="MAIL_MAILER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
+        <env  name="SHOPIFY_API_KEY" value="269a1ec67dfdd434dfc8622a0ed77768" force="true"/>
+        <env  name="SHOPIFY_API_PASSWORD" value="4e788173c35d04421ab4793044be622f" force="true"/>
     </php>
 </phpunit>
