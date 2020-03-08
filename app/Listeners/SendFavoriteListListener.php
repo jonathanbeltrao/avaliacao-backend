@@ -27,7 +27,9 @@ class SendFavoriteListListener
      */
     public function handle($event)
     {
+        $when = now()->addMinutes(2);
+
         Mail::to($event->user->email, $event->user->name)
-            ->later(2 ,new FavoriteList($event->user, $event->favorites));
+            ->later($when ,new FavoriteList($event->user, $event->favorites));
     }
 }
