@@ -18,6 +18,11 @@ Route::group(['middleware' => 'auth:api'], function(){
     // User Routes
     Route::get('/logout', 'Api\AuthController@logout')->name('logout')->name('logout');
     Route::get('/user', 'Api\AuthController@user')->name('loggedUser');
+
+    //Products
+    Route::get('/products', 'Api\ProductsController@list')->name('allProducts');
+    Route::get('/favorites', 'Api\ProductsController@getFavorites')->name('allFavorites');
+    Route::post('/products/favorite/{id}', 'Api\ProductsController@favorite')->name('favoriteProduct');
 });
 
 // Create/Login User
