@@ -28,6 +28,13 @@ class ProductRequest extends FormRequest
         ];
     }
 
+    public function all($keys = null)
+    {
+        $data = parent::all();
+        $data['id'] = $this->route('id');
+        return $data;
+    }
+
     public function messages()
     {
         return [
