@@ -24,7 +24,7 @@ class AuthController extends Controller
         $user = $this->userService->create($request->all());
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
 
-        return response()->json([
+        return response($test)->json([
             'access_token' => $token,
             'token_type' => 'Bearerrrr',
         ], 401);
